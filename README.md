@@ -1,6 +1,6 @@
-gh
+Video js implementation in Yii2
 ==
-ghg
+Video js implementation in Yii2
 
 Installation
 ------------
