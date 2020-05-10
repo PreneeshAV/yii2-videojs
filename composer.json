@@ -1,6 +1,6 @@
 {
     "name": "preneesh/yii2-videojs",
-    "description": "ghg",
+    "description": "Video js implementation in Yii2",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
     "license": "Apache-2.0",
