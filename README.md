@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist preneesh/yii2-videojs "*"
+php composer.phar require --prefer-dist preneesh/yii2-videojs "dev-master"
 ```
 
 or add
 
 ```
-"preneesh/yii2-videojs": "*"
+"preneesh/yii2-videojs": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
