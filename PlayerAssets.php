@@ -18,6 +18,7 @@ class PlayerAssets extends AssetBundle
         "assets/video.js",
         "assets/dash.all.debug.js",
         "assets/videojs-dash.js",
+        "assets/youtube.js",
     ];
 
     public $css = [

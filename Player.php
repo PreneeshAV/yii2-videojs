@@ -56,11 +56,15 @@ class Player extends \yii\base\Widget
 
         $this->registerAssets();
     }
-
+// 'data-setup' => '{ }',
     public function run()
     {
         $data = '';
-        $data .= Html::beginTag('video', $this->options);
+        $dataBody= '';
+        $youtube = array(
+          "techOrder"=> ["youtube"],
+          "youtube" => ["ytControls" => 2 ]
+        );
 
         if (!empty($this->tags) && is_array($this->tags)) {
 
@@ -73,7 +77,15 @@ class Player extends \yii\base\Widget
                             unset($tagOptions['content']);
                         }
 
-                        $data .= Html::tag($tagName, $tagContent, $tagOptions);
+                        if ($tagOptions['type'] == 'video/youtube' )
+                        {
+                            $this->options['data-setup'] =  json_encode($youtube);
+                        }
+                        else {
+                          $this->options['data-setup'] = "{}";
+                        }
+
+                        $dataBody .= Html::tag($tagName, $tagContent, $tagOptions);
                     }
 
                 } else {
@@ -82,7 +94,8 @@ class Player extends \yii\base\Widget
             }
 
         }
-
+        $data .= Html::beginTag('video', $this->options);
+        $data .= $dataBody ;
         $data .= Html::endTag('video');
 
         return $data;
