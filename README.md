@@ -1,11 +1,12 @@
 Video js implementation in Yii2
 ==
-This extension utilieses video js to enable video playing in yii2 application.
+This extension utilises video js to enable video playing in yii2 application.
 
 Feaures :
 -Playing youtube videos in yii2 application using videojs.
 -Playing Mp4 videos in yii2 application using videojs.
--Dash streaming in yii2 application using videojs. Dynamic Adaptive Streaming over HTTP (DASH) is an adaptive bitrate streaming technique that enables high quality streaming
+-Dash streaming in yii2 application using videojs. Dynamic Adaptive Streaming over HTTP (DASH) is an adaptive bitrate streaming technique that enables high quality streaming. Source to be modified with manifest.mpd file as shown in example.
+-HLS streaming in yii2 applicationusing videojs. HLS stands for HTTP Live Streaming and it uses a  .M3U8 playlist file (e.g. manifest file) that serves as an index for the video chunks.
 
 Installation
 ------------
@@ -98,6 +99,30 @@ Play Youtbe video in Yii2 application using below code:
     'tags' => [
         'source' => [
             ['src' => 'https://www.youtube.com/watch?v=R2MEiwBJTYM&t=4s', 'type' => 'video/youtube',],
+              ],
+    ],
+    'multipleResolutions' => true,
+]);
+?>
+```
+
+
+HLS streaming in Yii2 application using below code:
+
+```php
+
+<?= \preneesh\videojs\Player::widget([
+    'options' => [
+        'class' => 'video-js vjs-default-skin vjs-big-play-centered',
+        'poster' => 'http://localhost/projects/ffmpeg/gold.jpg',
+        'controls' => true,
+        'preload' => 'auto',
+        'width' => '970',
+        'height' => '400',
+    ],
+    'tags' => [
+        'source' => [
+            'src' => 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8', 'type' => 'application/x-mpegURL', 'selected' => 'true'],
               ],
     ],
     'multipleResolutions' => true,
